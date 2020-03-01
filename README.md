@@ -8,6 +8,8 @@
 
 * User can open and close edit interface after saving a todo item
 
+* Utilizes Bootstrap, jQuery, and Moment.js
+
 ## Deployed  App
 
 [Hosted via GitHub Pages](https://garrettmroberts.github.io/vcb-h5/);
