@@ -106,10 +106,15 @@ $(document).ready(function() {
       };
     })
 
+    // Prepares date str for new KeyValObj
+    var today = moment().format("MM DD YYYY");
+    var day = today.slice(3, 5);
+    
     // Creates new key/val pair
     var keyValObj = {
       eventName: userInput,
-      timeSlot: time
+      timeSlot: time,
+      date: day
     };
     // Pushes event to savedData
     oldArr.push(keyValObj)
@@ -127,7 +132,12 @@ $(document).ready(function() {
 
     // Checks if anything is saved in local storage.  Only runs if there is.
     if (savedEvents !== null) {
-      
+      console.log(savedEvents[0].date)
+      // Clears localStorage if a new day has begun.
+      if (savedEvents[0].date < moment().format(DD)) {
+        localStorage.clear();
+        return;
+      }
       // Checks each dataRow against local storage.
       var rows = $(".dataRow")
       rows.each(function() {
