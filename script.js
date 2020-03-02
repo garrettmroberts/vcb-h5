@@ -133,6 +133,7 @@ $(document).ready(function() {
     // Checks if anything is saved in local storage.  Only runs if there is.
     if (savedEvents !== null) {
       console.log(savedEvents[0].date)
+
       // Clears localStorage if a new day has begun.
       if (savedEvents[0].date < moment().format(DD)) {
         localStorage.clear();
@@ -155,4 +156,8 @@ $(document).ready(function() {
       });
     };
   };
+
+  // Updates row colors if necessary every ten seconds
+  setInterval(setRowColors, 10000);
+
 });
