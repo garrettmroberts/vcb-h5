@@ -82,9 +82,9 @@ $(document).ready(function() {
     var rows = $(".dataRow");
     rows.each(function() {
       var rowID = $(this).attr("id");
-        if (rowID < currentHour) {
+        if (rowID < parseInt(currentHour)) {
           $(this).addClass("table-danger");
-        } else if (rowID > currentHour) {
+        } else if (rowID > parseInt(currentHour)) {
           $(this).addClass("table-success");
         } else {
           $(this).addClass("table-primary");
